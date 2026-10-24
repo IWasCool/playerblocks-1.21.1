@@ -43,8 +43,6 @@ dependencies {
 }
 
 neoForge.version = project.neo_version
-apply from: 'gradle/gametest.gradle'
-apply from: 'gradle/verification.gradle'
 
 neoForge {
     parchment {
@@ -55,13 +53,11 @@ neoForge {
     runs {
         client {
             client()
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         server {
             server()
             programArgument '--nogui'
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
         }
 
         configureEach {
@@ -72,19 +68,8 @@ neoForge {
     mods {
         "${mod_id}" {
             sourceSet(sourceSets.main)
-            sourceSet(sourceSets.gametest)
         }
     }
-}
-
-// Install locally supplied test mods into the ordinary development instance.
-tasks.register('installLocalMods', Copy) {
-    from('libs') { include 'create-*.jar', 'jei-*.jar' }
-    into layout.projectDirectory.dir('run/mods')
-}
-
-tasks.matching { it.name in ['runClient', 'runServer', 'prepareClientRun', 'prepareServerRun'] }.configureEach {
-    dependsOn tasks.named('installLocalMods')
 }
 
 def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
@@ -116,7 +101,21 @@ tasks.withType(AbstractArchiveTask).configureEach {
     reproducibleFileOrder = true
 }
 
+tasks.withType(Jar).configureEach {
+    from(['LICENSE', 'NOTICE']) {
+        into 'META-INF'
+    }
+    from('docs/licenses/NeoForge-MDK.txt') {
+        into 'META-INF/licenses'
+    }
+}
+
 idea.module {
     downloadSources = true
     downloadJavadoc = true
+}
+
+// Optional local development configuration is not part of the published source.
+if (file('gradle/local-development.gradle').isFile()) {
+    apply from: 'gradle/local-development.gradle'
 }

@@ -39,8 +39,19 @@ run/
 repo/
 !**/src/**/repo/
 
-# Optional development mods are downloaded or supplied locally.
-libs/*.jar
+# Local development files are kept outside the published source.
+/src/gametest/
+/src/test/
+/tools/
+/libs/
+/gradle/local-development.gradle
+/gradle/gametest.gradle
+/gradle/verification.gradle
+/gradle/pack-check.init.gradle
+/docs/development.md
+/docs/localization.md
+/docs/release-audit.md
+/.prettierrc.json
 
 # Local settings, credentials, logs, and crash reports.
 .env
