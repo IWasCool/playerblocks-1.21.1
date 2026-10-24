@@ -1,0 +1,8 @@
+{
+  "parent": "player_blocks:block/shapes/tiles/inner_stairs",
+  "textures": {
+    "bottom": "player_blocks:block/tinted/quartz_bricks",
+    "side": "player_blocks:block/tinted/quartz_bricks",
+    "top": "player_blocks:block/tinted/quartz_bricks"
+  }
+}

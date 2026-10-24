@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/template_wall_side",
+  "textures": {
+    "wall": "player_blocks:block/tinted/white_concrete"
+  }
+}

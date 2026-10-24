@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "player_blocks:player_dye"
+    },
+    {
+      "item": "minecraft:oak_fence"
+    }
+  ],
+  "result": {
+    "id": "player_blocks:player_concrete_fence",
+    "count": 1
+  }
+}

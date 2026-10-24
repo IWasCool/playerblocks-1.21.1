@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/template_trapdoor_top",
+  "textures": {
+    "texture": "player_blocks:block/tinted/white_concrete"
+  }
+}

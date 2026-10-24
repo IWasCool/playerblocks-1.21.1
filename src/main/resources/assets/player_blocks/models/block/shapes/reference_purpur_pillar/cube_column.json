@@ -1,0 +1,12 @@
+{
+  "parent": "player_blocks:block/shapes/reference_purpur_pillar/cube",
+  "textures": {
+    "particle": "#side",
+    "down": "#end",
+    "up": "#end",
+    "north": "#side",
+    "east": "#side",
+    "south": "#side",
+    "west": "#side"
+  }
+}

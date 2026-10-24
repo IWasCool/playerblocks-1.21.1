@@ -1,0 +1,8 @@
+{
+  "parent": "player_blocks:block/shapes/slab_top",
+  "textures": {
+    "bottom": "player_blocks:block/tinted/white_concrete",
+    "side": "player_blocks:block/tinted/white_concrete",
+    "top": "player_blocks:block/tinted/white_concrete"
+  }
+}

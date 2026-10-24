@@ -1,0 +1,83 @@
+// GameTests use a separate source set and never enter the released mod.
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    gametestImplementation.extendsFrom implementation
+    gametestCompileOnly.extendsFrom compileOnly
+    gametestRuntimeOnly.extendsFrom runtimeOnly
+}
+
+// Generate a small empty GameTest structure; test assets never enter the released JAR.
+def generateGameTestStructure = tasks.register('generateGameTestStructure') {
+    def outputDir = layout.buildDirectory.dir('generated/gametestResources')
+    outputs.dir(outputDir)
+    doLast {
+        def target = outputDir.get().file('data/player_blocks/structure/empty.nbt').asFile
+        target.parentFile.mkdirs()
+        new DataOutputStream(new java.util.zip.GZIPOutputStream(new FileOutputStream(target))).withCloseable { nbt ->
+            nbt.writeByte(10)
+            nbt.writeUTF('')
+            nbt.writeByte(3)
+            nbt.writeUTF('DataVersion')
+            nbt.writeInt(3955)
+            nbt.writeByte(9)
+            nbt.writeUTF('size')
+            nbt.writeByte(3)
+            nbt.writeInt(3)
+            nbt.writeInt(5)
+            nbt.writeInt(5)
+            nbt.writeInt(5)
+            nbt.writeByte(9)
+            nbt.writeUTF('palette')
+            nbt.writeByte(10)
+            nbt.writeInt(1)
+            nbt.writeByte(8)
+            nbt.writeUTF('Name')
+            nbt.writeUTF('minecraft:air')
+            nbt.writeByte(0)
+            nbt.writeByte(9)
+            nbt.writeUTF('blocks')
+            nbt.writeByte(10)
+            nbt.writeInt(0)
+            nbt.writeByte(9)
+            nbt.writeUTF('entities')
+            nbt.writeByte(10)
+            nbt.writeInt(0)
+            nbt.writeByte(0)
+        }
+    }
+}
+sourceSets.gametest.resources.srcDir(generateGameTestStructure)
+
+neoForge {
+    addModdingDependenciesTo(sourceSets.gametest)
+    runs {
+        gameTestServer {
+            type = 'gameTestServer'
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('build/gametest-run')
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        blockVisualClient {
+            client()
+            sourceSet = sourceSets.gametest
+            gameDirectory = project.file('build/block-visual-run')
+            systemProperty 'player_blocks.visualCheck', 'true'
+            systemProperty 'player_blocks.visualOutput', project.file('build/player-blocks-inventory-preview.png').absolutePath
+            programArguments.addAll '--width', '1100', '--height', '700'
+        }
+    }
+}
+
+dependencies {
+    if (providers.gradleProperty('compatibilityTests').isPresent()
+        || providers.gradleProperty('schematicCompatTests').isPresent()) {
+        gametestRuntimeOnly fileTree(dir: 'build/compat-mods', include: '*.jar')
+    }
+}

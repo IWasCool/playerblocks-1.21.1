@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "player_blocks:player_liquid",
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "id": "player_blocks:player_liquid_bucket",
+      "count": 1
+    }
+  ]
+}

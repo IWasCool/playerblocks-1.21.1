@@ -1,0 +1,77 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "#pane",
+    "pane": "player_blocks:block/tinted/white_stained_glass",
+    "edge": "player_blocks:block/tinted/white_stained_glass_pane_top"
+  },
+  "elements": [
+    {
+      "from": [
+        7,
+        0,
+        9
+      ],
+      "to": [
+        9,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#edge",
+          "uv": [
+            7,
+            0,
+            9,
+            7
+          ],
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#edge",
+          "uv": [
+            7,
+            0,
+            9,
+            7
+          ],
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#edge",
+          "uv": [
+            7,
+            0,
+            9,
+            16
+          ],
+          "tintindex": 0,
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#pane",
+          "uv": [
+            7,
+            0,
+            0,
+            16
+          ],
+          "tintindex": 0
+        },
+        "east": {
+          "texture": "#pane",
+          "uv": [
+            0,
+            0,
+            7,
+            16
+          ],
+          "tintindex": 0
+        }
+      }
+    }
+  ],
+  "render_type": "minecraft:translucent"
+}

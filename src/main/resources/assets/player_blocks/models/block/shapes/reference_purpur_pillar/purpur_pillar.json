@@ -1,0 +1,7 @@
+{
+  "parent": "player_blocks:block/shapes/reference_purpur_pillar/cube_column",
+  "textures": {
+    "end": "player_blocks:block/tinted/purpur_pillar_top",
+    "side": "player_blocks:block/tinted/purpur_pillar"
+  }
+}

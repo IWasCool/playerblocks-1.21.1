@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "player_blocks:player_concrete"
+  },
+  "result": {
+    "id": "player_blocks:player_concrete_slab",
+    "count": 2
+  }
+}

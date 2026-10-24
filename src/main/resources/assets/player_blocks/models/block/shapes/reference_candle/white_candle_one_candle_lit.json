@@ -1,0 +1,8 @@
+{
+  "parent": "player_blocks:block/shapes/reference_candle/template_candle",
+  "textures": {
+    "all": "player_blocks:block/tinted/white_candle_lit",
+    "particle": "player_blocks:block/tinted/white_candle_lit"
+  },
+  "render_type": "minecraft:cutout"
+}

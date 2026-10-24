@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "player_blocks:player_dye"
+    },
+    {
+      "item": "minecraft:chiseled_quartz_block"
+    }
+  ],
+  "result": {
+    "id": "player_blocks:player_concrete_chiseled",
+    "count": 1
+  }
+}

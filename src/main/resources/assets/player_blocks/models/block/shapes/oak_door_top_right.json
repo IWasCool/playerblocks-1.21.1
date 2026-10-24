@@ -1,0 +1,7 @@
+{
+  "parent": "player_blocks:block/shapes/door_top_right",
+  "textures": {
+    "bottom": "player_blocks:block/tinted/white_concrete",
+    "top": "player_blocks:block/tinted/white_concrete"
+  }
+}

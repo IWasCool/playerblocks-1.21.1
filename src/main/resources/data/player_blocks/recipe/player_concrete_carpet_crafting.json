@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "player_blocks:player_dye"
+    },
+    {
+      "item": "minecraft:white_carpet"
+    }
+  ],
+  "result": {
+    "id": "player_blocks:player_concrete_carpet",
+    "count": 1
+  }
+}

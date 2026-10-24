@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "player_blocks:player_dye"
+    },
+    {
+      "item": "player_blocks:player_dye"
+    },
+    {
+      "item": "player_blocks:player_dye"
+    },
+    {
+      "item": "player_blocks:player_dye"
+    }
+  ],
+  "result": {
+    "id": "player_blocks:player_liquid_bucket",
+    "count": 1
+  }
+}

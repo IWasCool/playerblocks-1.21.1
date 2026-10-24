@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "player_blocks:block/shapes/stone_pressure_plate"
+    },
+    "powered=true": {
+      "model": "player_blocks:block/shapes/stone_pressure_plate_down"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/wall_inventory",
+  "textures": {
+    "wall": "player_blocks:block/tinted/white_concrete"
+  }
+}

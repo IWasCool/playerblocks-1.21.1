@@ -1,0 +1,24 @@
+{
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_21",
+  "required": true,
+  "package": "com.ourcreation.playerblocks.mixin",
+  "mixins": [
+    "copycats.CopycatsPlayerConcreteMaterialMixin",
+    "create.CreateConfigureSchematicannonMixin",
+    "create.CreatePlayerConcreteMaterialMixin",
+    "create.CreatePlayerLiquidSpoutMixin",
+    "create.CreateSchematicBlockMixin",
+    "create.CreateSchematicPlaceMixin",
+    "create.CreateSchematicannonMixin",
+    "framedblocks.FramedPlayerConcreteCraftingMixin",
+    "framedblocks.FramedPlayerConcreteMaterialMixin",
+    "thirst.ThirstPlayerLiquidDispenserMixin",
+    "vanilla.BannerColorRegistryMixin",
+    "vanilla.LegacyDecorationEntityMixin",
+    "vanilla.PlayerShulkerDropMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

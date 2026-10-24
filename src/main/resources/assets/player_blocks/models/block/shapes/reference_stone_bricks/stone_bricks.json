@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/reference_stone_bricks/cube_all",
+  "textures": {
+    "all": "player_blocks:block/tinted/stone_bricks"
+  }
+}

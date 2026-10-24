@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/reference_terracotta/cube_all",
+  "textures": {
+    "all": "player_blocks:block/tinted/terracotta"
+  }
+}

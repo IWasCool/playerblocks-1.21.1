@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "player_blocks:vanilla_dyes"
+    }
+  ],
+  "result": {
+    "id": "player_blocks:player_dye",
+    "count": 1
+  }
+}

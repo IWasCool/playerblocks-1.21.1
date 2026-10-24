@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:quartz_bricks"
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "player_blocks:player_liquid",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "id": "player_blocks:player_concrete_tiles",
+      "count": 1
+    }
+  ]
+}

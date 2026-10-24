@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GPG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "P": {
+      "item": "player_blocks:player_dye"
+    }
+  },
+  "result": {
+    "id": "player_blocks:player_concrete_glass",
+    "count": 8
+  }
+}

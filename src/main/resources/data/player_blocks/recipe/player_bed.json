@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "minecraft:beds"
+    },
+    {
+      "item": "player_blocks:player_dye"
+    }
+  ],
+  "result": {
+    "id": "player_blocks:player_bed",
+    "count": 1
+  }
+}

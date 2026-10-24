@@ -1,0 +1,7 @@
+{
+  "parent": "player_blocks:block/shapes/cube_column",
+  "textures": {
+    "end": "player_blocks:block/tinted/white_concrete",
+    "side": "player_blocks:block/tinted/white_concrete"
+  }
+}

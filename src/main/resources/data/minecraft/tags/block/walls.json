@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "player_blocks:player_concrete_wall",
+    "player_blocks:player_concrete_chiseled_wall",
+    "player_blocks:player_concrete_tiles_wall"
+  ]
+}

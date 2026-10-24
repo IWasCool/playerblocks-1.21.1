@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "tag": "player_blocks:vanilla_shulker_boxes"
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "player_blocks:player_liquid",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "id": "player_blocks:player_shulker_box",
+      "count": 1
+    }
+  ]
+}

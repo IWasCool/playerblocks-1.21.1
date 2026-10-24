@@ -1,0 +1,25 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "create"
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:gray_glazed_terracotta"
+    },
+    {
+      "type": "neoforge:tag",
+      "tag": "player_blocks:player_liquid",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "id": "player_blocks:player_gray_glazed_terracotta",
+      "count": 1
+    }
+  ]
+}

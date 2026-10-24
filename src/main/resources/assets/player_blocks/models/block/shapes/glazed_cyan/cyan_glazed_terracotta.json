@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/glazed_cyan/template_glazed_terracotta",
+  "textures": {
+    "pattern": "player_blocks:block/tinted/cyan_glazed_terracotta"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "player_blocks:block/shapes/chiseled/smooth_stone_slab"
+    },
+    "type=double": {
+      "model": "player_blocks:block/shapes/chiseled/smooth_stone_slab_double"
+    },
+    "type=top": {
+      "model": "player_blocks:block/shapes/chiseled/smooth_stone_slab_top"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/button_inventory",
+  "textures": {
+    "texture": "player_blocks:block/tinted/white_concrete"
+  }
+}

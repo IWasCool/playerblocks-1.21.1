@@ -1,0 +1,7 @@
+{
+  "parent": "player_blocks:block/shapes/tiles/cube_column",
+  "textures": {
+    "end": "player_blocks:block/tinted/quartz_bricks",
+    "side": "player_blocks:block/tinted/quartz_bricks"
+  }
+}

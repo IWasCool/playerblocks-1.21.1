@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "player_blocks:player_liquid",
+    "player_blocks:flowing_player_liquid"
+  ]
+}

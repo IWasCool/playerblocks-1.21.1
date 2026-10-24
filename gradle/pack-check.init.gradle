@@ -1,0 +1,33 @@
+// Disposable installed-pack checks. First run tools/dev/prepare-pack-check.ps1.
+// -PpackTarget=server|client-gameplay: runGameTestServer
+// -PpackTarget=client: runBlockVisualClient
+// Finish with a normal build so release metadata retains its minimum loader version.
+gradle.projectsEvaluated {
+    def p = gradle.rootProject
+    def target = p.providers.gradleProperty('packTarget').getOrElse('server')
+    if (!(target in ['server', 'client-gameplay', 'client'])) throw new GradleException('Unknown packTarget')
+    def fixture = p.file("build/pack-check/${target}")
+    if (!new File(fixture, 'manifest.json').isFile()) throw new GradleException('Prepare the pack-check fixture first')
+    if (target == 'client') {
+        // Renderer mods with nested libraries (notably Sodium) must use the normal
+        // mods-folder locator rather than be marked as development source JARs.
+        p.copy { from new File(fixture, 'mods'); into new File(fixture, 'run/mods'); include '*.jar' }
+    } else {
+        p.dependencies.add('gametestRuntimeOnly', p.fileTree(dir: new File(fixture, 'mods'), include: ['*.jar']))
+    }
+    def runName = target == 'client' ? 'blockVisualClient' : 'gameTestServer'
+    p.neoForge.runs.named(runName) {
+        gameDirectory = new File(fixture, 'run')
+        jvmArgument '-XX:ActiveProcessorCount=2'
+        jvmArgument '-Xmx3G'
+        if (p.providers.gradleProperty('packDebug').isPresent())
+            jvmArgument '-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=127.0.0.1:5007'
+        // Numismatics requires a URI instead of a Windows path.
+        def logging = p.layout.buildDirectory.file("moddev/${runName}Log4j2.xml").get().asFile.toURI().toString()
+        systemProperty 'log4j.configurationFile', logging
+        systemProperty 'log4j2.configurationFile', logging
+        logLevel = org.slf4j.event.Level.INFO
+        if (target == 'client')
+            systemProperty 'player_blocks.visualOutput', new File(fixture, 'inventory-preview.png').absolutePath
+    }
+}

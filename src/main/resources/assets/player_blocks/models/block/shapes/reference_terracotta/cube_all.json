@@ -1,0 +1,12 @@
+{
+  "parent": "player_blocks:block/shapes/reference_terracotta/cube",
+  "textures": {
+    "particle": "#all",
+    "down": "#all",
+    "up": "#all",
+    "north": "#all",
+    "east": "#all",
+    "south": "#all",
+    "west": "#all"
+  }
+}

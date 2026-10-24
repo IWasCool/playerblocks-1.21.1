@@ -1,0 +1,46 @@
+// Verify locale coverage and format arguments without requiring Node or network access.
+def verifyLocalizations = tasks.register('verifyLocalizations') {
+    def langDir = layout.projectDirectory.dir('src/main/resources/assets/player_blocks/lang')
+    def languageManifest = layout.projectDirectory.file('tools/localization/minecraft-languages.json')
+    inputs.dir(langDir)
+    inputs.file(languageManifest)
+    doLast {
+        def json = new groovy.json.JsonSlurper()
+        def expected = json.parse(languageManifest.asFile).languages.keySet()
+        def files = langDir.asFile.listFiles().findAll { it.name.endsWith('.json') }
+        def actual = files.collect { it.name.substring(0, it.name.length() - 5) }.toSet()
+        if (actual != expected) {
+            throw new GradleException('Language files must match the Minecraft 1.21.1 language menu')
+        }
+        def english = json.parse(new File(langDir.asFile, 'en_us.json'))
+        def argumentPattern = java.util.regex.Pattern.compile('%[0-9]+\\$s')
+        def arguments = { String text ->
+            def matcher = argumentPattern.matcher(text)
+            def result = []
+            while (matcher.find()) {
+                result.add(matcher.group())
+            }
+            result.sort()
+        }
+        files.each { file ->
+            def translations = json.parse(file)
+            if (translations.keySet() != english.keySet()) {
+                throw new GradleException("Missing or obsolete language keys in ${file.name}")
+            }
+            english.each { key, value ->
+                def translated = translations[key]
+                if (!(translated instanceof String) || translated.trim().isEmpty() || translated.contains('\uFFFD')) {
+                    throw new GradleException("Empty or damaged translation ${file.name}: ${key}")
+                }
+                if (arguments(translated) != arguments(value)) {
+                    throw new GradleException("Changed translation arguments ${file.name}: ${key}")
+                }
+                if (argumentPattern.matcher(translated).replaceAll('').contains('%')) {
+                    throw new GradleException("Unsupported translation format ${file.name}: ${key}")
+                }
+            }
+        }
+        logger.lifecycle("Verified ${files.size()} languages with ${english.size()} keys each")
+    }
+}
+tasks.named('processResources') { dependsOn verifyLocalizations }

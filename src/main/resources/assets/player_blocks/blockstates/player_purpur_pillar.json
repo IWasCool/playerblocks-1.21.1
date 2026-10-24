@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "player_blocks:block/shapes/reference_purpur_pillar/purpur_pillar_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "player_blocks:block/shapes/reference_purpur_pillar/purpur_pillar"
+    },
+    "axis=z": {
+      "model": "player_blocks:block/shapes/reference_purpur_pillar/purpur_pillar_horizontal",
+      "x": 90
+    }
+  }
+}

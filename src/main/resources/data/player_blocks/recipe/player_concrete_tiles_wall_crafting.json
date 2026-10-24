@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "player_blocks:player_dye"
+    },
+    {
+      "item": "minecraft:stone_brick_wall"
+    }
+  ],
+  "result": {
+    "id": "player_blocks:player_concrete_tiles_wall",
+    "count": 1
+  }
+}

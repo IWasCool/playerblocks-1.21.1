@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/template_fence_gate",
+  "textures": {
+    "texture": "player_blocks:block/tinted/white_concrete"
+  }
+}

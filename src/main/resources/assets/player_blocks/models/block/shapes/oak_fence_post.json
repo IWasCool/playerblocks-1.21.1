@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/fence_post",
+  "textures": {
+    "texture": "player_blocks:block/tinted/white_concrete"
+  }
+}

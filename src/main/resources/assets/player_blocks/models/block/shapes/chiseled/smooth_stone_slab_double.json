@@ -1,0 +1,7 @@
+{
+  "parent": "player_blocks:block/shapes/chiseled/cube_column",
+  "textures": {
+    "end": "player_blocks:block/tinted/chiseled_quartz_block",
+    "side": "player_blocks:block/tinted/chiseled_quartz_block"
+  }
+}

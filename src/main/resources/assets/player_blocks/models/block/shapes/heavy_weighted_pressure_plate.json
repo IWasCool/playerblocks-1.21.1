@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/pressure_plate_up",
+  "textures": {
+    "texture": "player_blocks:block/tinted/white_concrete"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "player_blocks:player_banner",
+    "player_blocks:player_wall_banner"
+  ]
+}

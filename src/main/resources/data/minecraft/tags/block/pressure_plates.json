@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "player_blocks:player_concrete_pressure_plate",
+    "player_blocks:player_concrete_light_weighted_pressure_plate",
+    "player_blocks:player_concrete_heavy_weighted_pressure_plate"
+  ]
+}

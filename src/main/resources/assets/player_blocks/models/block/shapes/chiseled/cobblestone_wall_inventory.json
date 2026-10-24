@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/chiseled/wall_inventory",
+  "textures": {
+    "wall": "player_blocks:block/tinted/chiseled_quartz_block"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "player_blocks:block/shapes/white_stained_glass"
+    }
+  }
+}

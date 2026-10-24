@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "player_blocks:player_concrete_button",
+    "player_blocks:player_concrete_wooden_button"
+  ]
+}

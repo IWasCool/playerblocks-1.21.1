@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "player_blocks:player_dye"
+    },
+    {
+      "item": "minecraft:quartz_stairs"
+    }
+  ],
+  "result": {
+    "id": "player_blocks:player_concrete_chiseled_stairs",
+    "count": 1
+  }
+}

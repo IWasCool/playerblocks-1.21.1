@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GGG",
+    "GGG"
+  ],
+  "key": {
+    "G": {
+      "item": "player_blocks:player_concrete_glass"
+    }
+  },
+  "result": {
+    "id": "player_blocks:player_concrete_pane",
+    "count": 16
+  }
+}

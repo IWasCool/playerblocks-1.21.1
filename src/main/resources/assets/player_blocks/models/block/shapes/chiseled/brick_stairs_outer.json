@@ -1,0 +1,8 @@
+{
+  "parent": "player_blocks:block/shapes/chiseled/outer_stairs",
+  "textures": {
+    "bottom": "player_blocks:block/tinted/chiseled_quartz_block",
+    "side": "player_blocks:block/tinted/chiseled_quartz_block",
+    "top": "player_blocks:block/tinted/chiseled_quartz_block"
+  }
+}

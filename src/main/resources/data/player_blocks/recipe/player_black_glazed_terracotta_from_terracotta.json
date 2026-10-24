@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "player_blocks:player_terracotta"
+  },
+  "result": {
+    "id": "player_blocks:player_black_glazed_terracotta",
+    "count": 1
+  }
+}

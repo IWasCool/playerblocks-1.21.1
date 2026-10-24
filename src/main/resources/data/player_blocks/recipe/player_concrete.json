@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:white_concrete"
+    },
+    {
+      "item": "player_blocks:player_dye"
+    }
+  ],
+  "result": {
+    "id": "player_blocks:player_concrete",
+    "count": 1
+  }
+}

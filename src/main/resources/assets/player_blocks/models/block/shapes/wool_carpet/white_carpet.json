@@ -1,0 +1,6 @@
+{
+  "parent": "player_blocks:block/shapes/wool_carpet/carpet",
+  "textures": {
+    "wool": "player_blocks:block/tinted/white_wool"
+  }
+}
