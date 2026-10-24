@@ -41,10 +41,3 @@ contain everything needed to build the mod.
 | `gradle/wrapper/` | Gradle wrapper and download configuration |
 | `docs/gameplay.md` | Recipes, commands, integrations, and limits |
 | `.github/workflows/build.yml` | Builds the mod and source JARs on GitHub |
-
-## License
-
-Copyright 2026 Izcool. Player Blocks is licensed under the
-[Apache License, Version 2.0](LICENSE). The license and [NOTICE](NOTICE) are included in both JARs.
-The original NeoForge MDK template's MIT notice is preserved
-[here](docs/licenses/NeoForge-MDK.txt).

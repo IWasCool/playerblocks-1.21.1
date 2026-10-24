@@ -102,11 +102,8 @@ tasks.withType(AbstractArchiveTask).configureEach {
 }
 
 tasks.withType(Jar).configureEach {
-    from(['LICENSE', 'NOTICE']) {
+    from('LICENSE') {
         into 'META-INF'
-    }
-    from('docs/licenses/NeoForge-MDK.txt') {
-        into 'META-INF/licenses'
     }
 }
 
