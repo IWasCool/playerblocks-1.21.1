@@ -1,81 +1,133 @@
 # Gameplay guide
 
-Localization covers all **137 languages selectable in Minecraft 1.21.1**, including regional variants, Pirate Speak, LOLCAT, and Upside Down. Block/item names, the creative tab, Player Dye/Liquid, and color-command feedback use the selected client language. Hex codes, usernames, and command syntax remain unchanged. These are initial, machine-assisted translations with Minecraft's own item terminology; native-speaker wording review is welcome. Nine minority/constructed-language packs use native Minecraft labels and compact numeric confirmation instructions.
+Player Blocks gives your builds a personal or team color. Blocks remember who placed them and
+follow that player's color, including the team color when the owner belongs to a supported team.
 
-- Full block: `player_blocks:player_concrete`.
-- **52 player-colored block items**, plus **Player Dye** and **Player Liquid Bucket**: the 26 building variants, plus wool, terracotta, purpur block/pillar, stone bricks, bed, chest, shulker box, candle, banner, and all 16 glazed terracotta patterns. The banner has a separate wall block but shares one inventory item, making 53 building blocks plus the Player Liquid block. Display names use **Player <block name>**, such as Player Block, Player Pillar, Player Fence, and Player Chest. Existing registry IDs stay unchanged. Polished blackstone bricks, deepslate bricks, and ladders remain removed.
-- Players receive a stable UUID-based color. Use `/playercolor hex 27B6D9` to change it, `/playercolor reset` to restore it, or `/playercolor` to view it.
-- `/hex <username> #RRGGBB` changes a player's personal color, including known offline players. Players can change their own color; operators (permission level 2) can change anyone's. Six hex digits are required; the `#` is optional.
-- Non-operators have **two confirmed personal color changes per world**. `/hex` first explains the limit and remaining changes, then provides clickable **[Confirm]** and **[Cancel]** choices in chat. Nothing changes until Confirm is clicked. Cancel, malformed input, expired prompts, and stale buttons do not use the allowance. The count persists across logins and world/server restarts. Existing worlds start tracking changes with this update.
-- `/playercolor hex` and `/playercolor reset` share that allowance and confirmation flow, preventing an alias/reset bypass. Reset uses one change only when confirmed. Operators can change colors immediately and without a limit; operator changes do not spend or restore the target player's allowance. Prompts expire after five minutes, belong only to the requesting player, and are replaced by newer requests. Team commands retain their existing leader/operator permissions.
-- Placed concrete follows its owner's color. Shift-right-click unowned concrete to claim it.
-- Create copycats, Copycats+, and FramedBlocks retain the owner's color slot.
-- Craft **Player Dye** by placing any single vanilla dye in a crafting slot. Its 16x16 dye sprite follows your current player/team hex color. Craft Player Block from white concrete plus Player Dye.
-- Every player block has a crafting-table recipe using Player Dye and its vanilla source block. Player Dye replaces Player Block as the coloring ingredient, including the content-preserving shulker conversion. Stonecutter conversions between Player blocks remain available. Obtaining a vanilla dye unlocks Player Dye; obtaining Player Dye unlocks the block recipes.
-- Use a stonecutter to turn Player Block into building shapes, decorative blocks, either door/button, or any pressure plate. One block yields two slabs or one of the other shapes. Patterned slabs, stairs, and walls can also be cut from their matching chiseled or tiled full block. Surround one Player Dye with eight glass blocks to craft eight Player Glass; six Player Glass craft sixteen panes. All 52 block items and Player Dye appear in the dedicated **Player Blocks** creative tab and the Building Blocks tab. The Player Liquid Bucket appears in the dedicated tab and Tools & Utilities.
-- Models are tinted to their owner's color. Pillars have striped quartz-style sides and end grain, with correct tint on all three axes. Both door inventory icons use Minecraft's flat spruce-door sprite, converted to a neutral tintable texture that retains its solid panels, grain, shading, and handle. Glass is translucent; the glass pane inventory icon uses the original Minecraft glass texture as a flat 2D sprite, preserving the clear center, border, and diagonal highlights while tinting the visible pixels.
-- Shape placement, stair corners, slab merging, waterlogging, fence/wall connections, doors, buttons, and pressure plates follow their vanilla counterparts. The regular door and trapdoor can be opened by hand or redstone. Patterned concrete items place their own block types, so the pillar stripes, chiseled pattern, and tile joints remain visible after placement and recoloring.
-- All shapes keep their owner's color when saved, reloaded, or updated through `/playercolor`. Both halves of a door share ownership. Player Block, Player Chiseled, and Player Tiles retain their texture and owner color when used by Create/Copycats+/FramedBlocks.
+## Choose your color
 
-## Doors, patterned shapes, buttons, and pressure plates
+Use a six-digit hex color, with or without the `#`. For example:
 
-- `player_concrete_door` is **Player Door**, with normal hand-opening behavior. `player_concrete_iron_door` is **Player Iron Door**: it has iron-door functionality, opening only while powered, but keeps the same concrete appearance and player/team color. Both halves share ownership, and both door types have the same flat, solid-panel inventory icon.
-- Added `player_concrete_chiseled_slab`, `player_concrete_chiseled_stairs`, `player_concrete_chiseled_wall`, `player_concrete_tiles_slab`, `player_concrete_tiles_stairs`, and `player_concrete_tiles_wall`. Their patterns appear in the world and inventory. Slabs merge into matching double slabs; stairs form vanilla corners; walls connect normally. All retain ownership, hex colors, team leader colors, and schematic recoloring.
-- Buttons have two functional types: `player_concrete_button` is the stone button, active for 20 ticks (1 second); `player_concrete_wooden_button` uses wood behavior, active for 30 ticks (1.5 seconds) and can be triggered by arrows. Both support floor, wall, and ceiling placement and player/team colors. Minecraft's light/heavy weighted variants are pressure plates rather than buttons.
-- `player_concrete_pressure_plate` is the normal on/off plate, using stone behavior and activating for living entities. The separate wood and polished-blackstone variants have been removed.
-- `player_concrete_light_weighted_pressure_plate` uses vanilla gold behavior (up to 15 entities); `player_concrete_heavy_weighted_pressure_plate` uses vanilla iron behavior (up to 150 entities). They produce proportional redstone signals, rather than only on/off output. Each plate retains player/team ownership.
-- `player_concrete_glass`, `player_concrete_chiseled`, and `player_concrete_tiles` add translucent windows and patterned full blocks with the same hex/team/schematic ownership behavior.
+```text
+/hex Alex #27B6D9
+```
 
-## Reference blocks and glazed terracotta
+Replace `Alex` with your Minecraft username. Your placed Player Blocks update automatically.
 
-- **Player Wool** replaces the incorrectly identified diorite block, using Minecraft's wool texture, sound, and wool tags. Its `player_diorite` registry ID is retained so existing placements keep their ownership and become wool. Craft it from any vanilla wool plus Player Dye. Player Carpet also uses the wool texture.
-- `player_terracotta`, `player_purpur_block`, `player_purpur_pillar`, and `player_stone_bricks` use their corresponding vanilla texture patterns. Terracotta retains its original smooth texture and subtle grain, rather than stretching that grain into a stone-like overlay. Craft a vanilla source block together with one Player Dye to create its player-colored counterpart. The purpur pillar retains placement on all three axes.
-- Added `player_<pattern>_glazed_terracotta` for every vanilla pattern: `white`, `orange`, `magenta`, `light_blue`, `yellow`, `lime`, `pink`, `gray`, `light_gray`, `cyan`, `purple`, `blue`, `brown`, `green`, `red`, and `black`. The dye name identifies the original pattern, while the actual color comes from the player or their team leader. Craft the matching vanilla glazed terracotta plus Player Dye, or stonecut Player Terracotta into any of the sixteen patterns.
-- Original pattern pixels are converted into neutral textures before applying the player's hex/team tint. Older concrete, pillar, chiseled, and tile textures and newer wool, terracotta, purpur, brick, and glazed textures now share the same average brightness (235/255), with subtle pattern contrast. Natural low-contrast textures stay subtle. This removes the old/new material shade mismatch; Minecraft's lighting, face shading, and glass transparency still affect how a surface appears. Glazed blocks retain vanilla four-way orientation and pattern tiling. Ownership, recoloring, saved-data persistence, and schematic re-binding work through the same shared system as concrete.
-- `player_bed` is crafted from any bed plus Player Dye. It uses Minecraft's original bed entity, model, texture layout, renderer, and inventory transforms, with vanilla sleeping/spawn behavior and two-block placement. Both halves share ownership. The blanket takes the player's/team leader's color, with expanded contrast in the original fabric pattern so its seams and shading remain visible instead of looking flat. Highlights use the chosen hex color; the pillow and wooden frame retain their vanilla appearance. The untinted pillow wraps down both sides and the head/back edge, matching Minecraft's original bed texture.
-- `player_candle` is crafted from a vanilla candle plus Player Dye. Standalone candles stack from one to four, can be lit or extinguished, and retain waterlogging and light output. The custom candle does not provide a candle-on-cake variant.
-- `player_banner` is crafted from a white banner plus Player Dye. One item places either a standing banner or its `player_wall_banner` form. It uses Minecraft's original banner entity, model, renderer, waving animation, inventory transforms, and banner item type. Its base cloth follows the player/team leader's color; the pole and dyed loom patterns retain vanilla colors. Pattern components survive placement, saving, pick-block, and breaking either banner form. Previously placed beds and banners automatically load into the native entity classes without losing ownership or colors.
-- **Player Chest** (`player_concrete_chest`) uses Minecraft's chest model, lid animation, waterlogging, storage menu, hopper support, and single/double chest behavior. Its body uses the placer or team leader's hex color with the original visible wood-grain pattern. The overlay retains the vanilla corner and trim texture detail in gray, preserves the latch's exact original metal pixels, and keeps the lid underside and interior untinted with their original texture detail. All three single/left/right chest textures use this treatment. Both halves of a double chest share ownership. This is normal chest storage with team coloring; access works like vanilla. Craft a chest plus Player Dye.
-- **Player Shulker Box** (`player_shulker_box`) uses Minecraft's shulker model, opening animation, six-way orientation, and portable 27-slot storage. Craft any vanilla shulker box plus Player Dye; the custom conversion recipe preserves its contents, name, and components. Survival drops, creative breaking of filled boxes, pick-block, and saving retain the custom box and its contents. It cannot be nested inside another shulker. Placement and schematic placement rebind its hex/team color to the placer.
-- Beds, candles, banners, chests, and shulkers are excluded from the FramedBlocks block-entity material whitelist; Player Block, Player Chiseled, and Player Tiles are the supported palette-backed copied-material sources. Other entity-colored shapes are not advertised as FramedBlocks camos.
+| Command | Use |
+| --- | --- |
+| `/hex <username> #RRGGBB` | Set your personal color. Operators can also change another player's color. |
+| `/playercolor` | Show the color your blocks currently use. |
+| `/playercolor hex #RRGGBB` | Set your own color without entering a username. |
+| `/playercolor reset` | Restore your original personal color. |
+
+Players have **two confirmed personal color changes per world**. Setting or resetting your personal
+color uses one change after you click **Confirm** in chat. **Cancel**, invalid input, and expired
+prompts do not use a change. The allowance persists after leaving the server or restarting the world.
+Operators have no personal color-change limit; changing another player's color as an operator
+does not use that player's allowance.
 
 ## Team colors
 
-- **Team-based coloring uses the team leader's color.** A member's own `/hex` color is preserved for when they leave the team. A leader-set `/teamcolor` override applies equally to the leader and every member.
-- FTB Teams parties and Open Parties and Claims (OPAC) parties automatically inherit their leader's personal block color, even while the leader is offline. These mods are optional. FTB takes priority over OPAC if a player belongs to both; scoreboard teams are the fallback. FTB personal/server teams without a party leader do not supply a party color.
-- `/teamcolor` shows your team's effective block color and leader.
-- `/teamcolor hex #RRGGBB` sets a separate block-color override for your team. Only its leader or an operator in that team can change it.
-- `/teamcolor reset` removes that override and returns to the current leader's personal color. Personal colors are preserved while a player is in a team.
-- Vanilla scoreboard teams have no built-in leader. An operator can assign a member with `/teamcolor leader <scoreboard-team> <username>`. This also supports mods that mirror their teams into the vanilla scoreboard.
-- Membership and leadership changes are checked once per second. Existing concrete and Create/Copycats+/FramedBlocks materials retain their original owner's slot and follow that owner's current team color. Changes persist across world restarts; commands affect Player Blocks colors, not the other mods' map/chat colors.
-- Other team mods can integrate through `TeamColors.registerProvider(id, provider)` during common setup on the work queue. Return a `TeamColors.Team` with a stable namespaced team key and leader UUID, or `null` when the player has no team. Arbitrary team mods require an adapter or scoreboard mapping; they are not detected by guessing a leader.
+FTB Teams parties and Open Parties and Claims parties use their leader's personal color by default,
+including while the leader is offline. A separate team color overrides that default for every member.
+Each member's personal color is saved for when they leave the team.
 
-Adapters use the public [FTB Teams API](https://github.com/FTBTeam/FTB-Teams/tree/1.21.1/main/common/src/main/java/dev/ftb/mods/ftbteams/api) and [OPAC server API](https://thexaero.github.io/open-parties-and-claims/javadoc/xaero/pac/common/server/api/OpenPACServerAPI.html). Adapter failures are logged once and fall back to the next supported provider or personal color.
+| Command | Use |
+| --- | --- |
+| `/teamcolor` | Show your team's current color and leader. |
+| `/teamcolor hex #RRGGBB` | Set a separate color for your team. |
+| `/teamcolor reset` | Remove the override and follow the leader's personal color again. |
 
-## Schematic coloring
+Only the leader or an operator **in that team** can set or reset its color.
+When several team systems are installed, FTB Teams parties take priority, then Open Parties and Claims,
+then vanilla scoreboard teams. FTB personal and server teams without a party leader do not supply a color.
+These commands change Player Blocks colors; map and chat colors belong to their respective mods.
 
-- Create's creative instant placement reassigns pasted Player Blocks to the player placing the schematic. Saved ownership and foreign color slots from the schematic's original builder are replaced. All shapes, including paired doors, beds, and double chests, use the new owner; storage contents remain intact.
-- The Schematicannon uses the player who presses **Start/Play**. That UUID is saved with the cannon and each launched block, so delayed shots and server restarts keep the correct owner even if someone else later operates the cannon. For cannons already running before this update, press Start/Play again to assign an operator.
-- A solo placer uses their `/hex` color. A placer on a supported team uses the **team leader's color**, including any leader-set team override. Pasted blocks remain linked to the placer, so later hex, team membership, or leadership changes recolor them automatically.
-- Embedded Player Block material states and item components in copycat/framed schematic data are rebound to the placer's color slot. The source schematic remains unchanged, allowing different players to paste it in their own colors.
-- The automatic hooks cover Create instant placement, the Create Schematicannon, and player-driven WorldEdit sessions (including buffered placement). WorldEdit assigns the executing player, preserves storage contents, and uses their team leader color. Console sessions do not guess an owner. Other schematic systems need an integration that supplies the actual player UUID; ownership is not inferred from nearby players. Integrations can wrap a synchronous paste with `SchematicColors.withPlacer(...)`, then use `prepare(...)`/`finish(...)` for each block. Delayed systems can carry the UUID with `markShot(...)`.
+Vanilla scoreboard teams need an operator to assign a leader who is already a member:
 
-For build commands, see the [README](../README.md#build).
+```text
+/teamcolor leader <scoreboard-team> <username>
+```
 
-Player Blocks is independently installable. Existing color saved data keeps its original `create_new_world_core_player_colors` name so owners, slots, and overrides survive the extraction. For worlds from before the extraction, back up before replacing the old block registry namespace; those older placed blocks are not automatically remapped. This extraction warning does not apply to an upgrade from Player Blocks 0.0.1 to 0.0.2.
+## Crafting
 
+Start with **Player Dye**, made by placing any one vanilla dye in a crafting slot.
+It takes your personal or team color. Use it with vanilla materials to craft colored blocks,
+or use a stonecutter to turn Player Block into building shapes.
 
-Player Liquid uses water-style flow, swimming, drowning, extinguishing, boat support, hydration, and source renewal. Buckets hold 1,000 mB; craft one from four Player Dye plus an empty bucket. Bucket placement links the liquid to the placer; flowing liquid inherits ownership and follows the owner/team leader color. Create tanks and portable liquid previews use the viewing player's color, while placed blocks use their saved owner's color.
+| Recipe | Result |
+| --- | --- |
+| Any vanilla dye | Player Dye |
+| White concrete + Player Dye | Player Block |
+| A compatible vanilla source block + Player Dye | Its Player Blocks counterpart |
+| Player Dye surrounded by eight glass blocks | Eight Player Glass |
+| Six Player Glass | Sixteen Player Glass Panes |
+| Any vanilla shulker box + Player Dye | Player Shulker Box, retaining contents, name, and components |
+| Four Player Dye + an empty bucket | Player Liquid Bucket |
 
-Create compatibility: a Mechanical Mixer converts one Player Dye into 250 mB of Player Liquid. A Spout uses 250 mB to convert a vanilla source item into its Player block counterpart, including glass, building shapes, decorations, and shulker boxes. Shulker contents/components survive spout conversion. Bucket filling and emptying use 1,000 mB. Create recipes load only when Create is installed.
+A stonecutter turns one Player Block into two slabs or one of the other available shapes.
+Matching chiseled and tiled full blocks also cut into their own slabs, stairs, and walls.
+Player Terracotta can be stonecut into any of the 16 glazed patterns.
+All block items, Player Dye, and the liquid bucket appear in the **Player Blocks** creative tab.
 
-Thirst Was Reclaimed compatibility: when that optional mod is installed, dispenser pickup preserves the Player Liquid bucket instead of replacing it with a vanilla water bucket. Stacked empty buckets and occupied dispenser inventories retain their normal behavior, and vanilla water pickup keeps Thirst's purity data. Tested with Thirst Was Reclaimed 3.0.6 and the pack's Moonlight/Supplementaries dispenser handling.
+## Blocks and ownership
 
-## Runtime performance
+- Slabs, stairs, walls, fences, gates, and pillars retain their familiar placement and connection behavior.
+- Player Door and Player Trapdoor open by hand or redstone. Player Iron Door requires redstone.
+- Stone buttons activate for one second. Wooden buttons activate for 1.5 seconds and can be triggered by arrows.
+- The normal pressure plate detects living entities. Light and heavy weighted plates use their vanilla signal behavior.
+- Glass and panes are translucent. Glazed terracotta keeps each original pattern and its four-way placement.
+- Beds retain sleeping and spawn behavior; their pillows and wooden frames keep their original appearance.
+- Banners retain loom patterns. The base cloth follows your color while the patterns retain their dye colors.
+- Chests retain storage, double-chest behavior, waterlogging, and hopper access. Colors do not restrict access.
+- Shulker boxes retain their contents when converted, placed, picked up, or broken, and cannot be nested.
+- Candles stack from one to four and support lighting and waterlogging; a candle-on-cake variant is not included.
 
-- Passive owned shapes, beds, banners, and chests refresh through a shared staggered queue once every 20 ticks. They no longer have a server block-entity callback every tick. Palette-backed full blocks remain unticked; legacy slot-zero blocks automatically migrate through the queue. Shulkers retain their native animation ticks.
-- Owned liquid uses one scheduled color refresh per 20 ticks, independently of vanilla fluid simulation. Unowned liquid has no color refresh scheduled. Ownership and pending refreshes survive reloads.
-- Unchanged colors skip tint recomputation, palette change detection avoids copying NBT, multiplayer broadcasts share one snapshot, and inventory stacks reuse immutable color components. Color/team changes continue propagating automatically.
-- Bed and container texture sources decode once per resource reload. Generated textures retain bounded LRU caches (256 bed and 512 container textures); eviction releases GPU textures after the frame finishes, and recreated colors reuse stable texture IDs.
+Ownership and colors persist through saving and reloading. Both halves of doors, beds, and double chests
+share ownership. Shift-right-click an unowned **Player Block** to claim it.
 
-These changes reduce recurring work and allocation; they are not a measured FPS/TPS guarantee. Large liquid builds still store one block entity per liquid block, and palette materials retain the existing 4,095-owner world limit.
+## Create, Copycats+, FramedBlocks, and WorldEdit
+
+**Player Block**, **Player Chiseled**, and **Player Tiles** retain their color when used as supported
+copycat or FramedBlocks materials. Beds, banners, chests, shulkers, and candles are not supported FramedBlocks camos.
+
+Create's instant schematic placement and player-run WorldEdit operations assign placed Player Blocks
+to the player doing the placement. Their personal or team color applies, and storage contents are preserved.
+Copied copycat and framed materials also adopt that player's color.
+
+The **Schematicannon** uses the player who presses **Start/Play**. This owner is saved for delayed shots
+and server restarts. Press Start/Play again on a cannon from an older version to assign its operator.
+WorldEdit console operations do not assign a player owner.
+
+JEI includes the shulker conversion recipe alongside the regular recipes.
+
+## Player Liquid
+
+Player Liquid flows like water and supports swimming, drowning, extinguishing, boats, and source renewal
+when the world's water source-conversion rule allows it. Bucket placement links it to the placer;
+flowing liquid inherits that owner and follows their personal or team color.
+
+A bucket holds **1,000 mB**. Create adds these optional processing recipes:
+
+| Process | Recipe |
+| --- | --- |
+| Mechanical Mixer | One Player Dye produces 250 mB of Player Liquid. |
+| Spout | 250 mB of Player Liquid converts a supported vanilla source item into its Player Blocks counterpart. |
+| Bucket filling / emptying | Transfers 1,000 mB. |
+
+Spout conversions preserve shulker contents and components. Tank and portable fluid previews show
+the viewing player's color; placed liquid uses its saved owner's color.
+
+With **Thirst Was Reclaimed**, dispenser pickup keeps the Player Liquid bucket, while vanilla water
+pickup retains Thirst's purity data.
+
+## Current limits
+
+- Personal color changes are limited to two per world for non-operators.
+- Palette-based blocks and copied materials support up to 4,095 owners per world.
+- Team support covers the systems listed above; another team system needs an adapter or a supported scoreboard setup.
+
+Block names and command feedback cover all 137 languages selectable in Minecraft 1.21.1.
+Translations use Minecraft's terminology where available; wording improvements are welcome.
+
+For installation and build instructions, see the [README](../README.md).

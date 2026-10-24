@@ -1,14 +1,18 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
+issueTrackerURL="https://github.com/IWasCool/playerblocks-1.21.1/issues"
 
 [[mods]]
 modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
+displayURL="https://github.com/IWasCool/playerblocks-1.21.1"
 authors="Izcool"
 description='''
-Player-colored building blocks, dye, and water-like liquid. Personal hex colors and team leader colors, with optional Create, WorldEdit, and JEI integrations.
+Build with your own colors. Over 50 building and decorative blocks, plus matching dye and liquid, follow your personal or team hex color. Placed blocks update automatically when your color changes.
+
+Optional support for Create, Copycats+, FramedBlocks, WorldEdit, JEI, FTB Teams, and Open Parties and Claims.
 '''
 
 [[mixins]]
